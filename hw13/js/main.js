@@ -8,13 +8,24 @@ console.log('Sample JavaScript #1 HW #13');
 
 // имя переменной: myNum, значение: 10
 
+var myNum = 10;
+
 // имя переменной: myStr, значение: 'строка'
+
+var myStr = 'строка';
 
 // имя переменной: myBool, значение: true
 
+var myBool = true;
+
 // имя переменной: myArr, значения: 1, 2, 3, 4, 5
 
+var myArr = [1, 2, 3, 4, 5];
+
 // имя переменной myObj, значения: first: 'First Name', last: 'Last Name'
+
+var myObj = {first: 'First Name', last: 'Last Name'};
+
 
 /*
  * #2
@@ -24,7 +35,7 @@ console.log('Sample JavaScript #1 HW #13');
  * Результат сохраните в переменную decimal2.
  */
 
-// decimal2
+var decimal2 = myNum.toFixed(2);
 
 /*
  * #3
@@ -34,7 +45,11 @@ console.log('Sample JavaScript #1 HW #13');
  * Поэкспериментируйте с результатами, выводя их в консоль.
  */
 
-// i
+var i = 0;
+    ++i;
+    i++;
+    --i;
+    i--;
 
 /*
  * #4
@@ -45,17 +60,27 @@ console.log('Sample JavaScript #1 HW #13');
  * В вычислениях можно использовать объявленную ранее переменную myNum и/или числа.
  */
 
-// myTest
+var myTest = 20;
 
 // +=
+myTest += myNum; 
+console.log(myTest);
 
 // –=
+myTest -= myNum; 
+console.log(myTest);
 
 // *=
+myTest *= 2; 
+console.log(myTest);
 
 // /=
+myTest /= 4; 
+console.log(myTest);
 
 // %=
+myTest %= 3; 
+console.log(myTest);
 
 /*
  * #5
@@ -64,12 +89,22 @@ console.log('Sample JavaScript #1 HW #13');
  */
 
 // константа Pi → myPi
+var myPi = 0;
+myPi = Math.PI;
+console.log(myPi);
 
 // округленное значение числа 89.279 → myRound
+var myRound = Math.round(89.279);
+console.log(myRound);
 
 // случайное число между 0..10 → myRandom
+var myRandom = Math.random()*11;
+console.log(myRandom);
 
 // 3 в 5 степени → myPow
+
+var myPow = Math.pow(3,5);
+console.log(myPow);
 
 /*
  * #6
@@ -78,7 +113,10 @@ console.log('Sample JavaScript #1 HW #13');
  * Присвойте ключу str строку текста "Мама мыла раму, рама мыла маму", ключу length установите длину этой строки.
  */
 
+var strObj = {str:'Мама мыла раму, рама мыла маму', length:0};
+strObj.length= strObj.str.length;
 // Мама мыла раму, рама мыла маму
+//console.log(strObj);
 
 // strObj
 
@@ -90,7 +128,10 @@ console.log('Sample JavaScript #1 HW #13');
  */
 
 // isRamaPos
-
+var isRamaPos = (strObj.str.indexOf('рама')!=-1);
+//   console.log(isRamaPos); // формально "проверить наличие" это проверить что позиция/индекс этого текста - существуєт, т.е. > -1
+console.log(strObj.str.indexOf('рама'));
+                                
 /*
  * #8
  *
@@ -101,9 +142,17 @@ console.log('Sample JavaScript #1 HW #13');
  */
 
 // strReplace
+var strReplace = (strObj.str.replace('мыла', 'моет'));
+    strReplace = (strReplace.replace('рама мыла', 'Рама держит'));
+    console.log(strReplace);
+
+
 
 /*
  * #9
  *
  * Преобразуйте любую строку в верхний, затем в нижний регистры, результат отобразите в консоли.
  */
+
+   console.log('We Are Real Web-Developers'.toLowerCase());
+   console.log('We Are Real Web-Developers'.toUpperCase());
