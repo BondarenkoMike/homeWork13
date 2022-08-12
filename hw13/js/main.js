@@ -98,7 +98,7 @@ var myRound = Math.round(89.279);
 console.log(myRound);
 
 // случайное число между 0..10 → myRandom
-var myRandom = Math.random()*11;
+var myRandom = Math.random()*10;
 console.log(myRandom);
 
 // 3 в 5 степени → myPow
@@ -128,9 +128,10 @@ strObj.length= strObj.str.length;
  */
 
 // isRamaPos
-var isRamaPos = (strObj.str.indexOf('рама')!=-1);
-//   console.log(isRamaPos); // формально "проверить наличие" это проверить что позиция/индекс этого текста - существуєт, т.е. > -1
-console.log(strObj.str.indexOf('рама'));
+//var isRamaPos = (strObj.str.indexOf('рама')!=-1);
+//   console.log(isRamaPos); // формально, "проверить наличие" это проверить что позиция/индекс этого текста - существует, т.е. > -1
+var isRamaPos = strObj.str.indexOf('рама')
+console.log(isRamaPos);
                                 
 /*
  * #8
