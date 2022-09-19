@@ -74,14 +74,14 @@ const gotoSlide = (slideNum) => {
 function indicatorClick(event) {
   var t;
   let slides;
-  if (event.originalTarget.getAttribute('class') === 'indicators__item') {
+  if (event.target.getAttribute('class') === 'indicators__item') {
     const activeIndicator = document.querySelector('.indicators .indicators_item--active');
 
-    if (activeIndicator !== event.originalTarget) {
+    if (activeIndicator !== event.target) {
       if (activeIndicator) activeIndicator.classList.remove('indicators_item--active');
     };
-    event.originalTarget.classList.add('indicators_item--active');
-    const targetSlideNum = +event.originalTarget.getAttribute('data-slide-to');
+    event.target.classList.add('indicators_item--active');
+    const targetSlideNum = +event.target.getAttribute('data-slide-to');
     gotoSlide(targetSlideNum);
 
   }

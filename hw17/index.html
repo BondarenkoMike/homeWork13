@@ -5,6 +5,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"
+    integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"
+    integrity="sha512-HHsOC+h3najWR7OKiGZtfhFIEzg5VRIPde0kB0bG2QRidTQqf+sbfcxCTB16AcFB93xMjnBIKE29/MjdzXE+qw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/fontawesome.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/fontawesome.min.css"> -->
   <title>Домашнее задание №18. Карусель</title>
 </head>
 
@@ -30,10 +41,6 @@
 
         .slides__item-link {
           text-decoration: none;
-        }
-
-        .controls {
-          position: relative;
         }
 
         .indicators {
@@ -63,6 +70,35 @@
           font-weight: bold;
           background-color: red;
         }
+
+        .controls {
+          position: relative;
+          display: flex;
+          height: 35px;
+          width: 100%;
+          /* border: 1px solid black; */
+          justify-content: center;
+          align-items: center;
+          padding: 5px;
+        }
+
+        .controls__item {
+          display: flex;
+          border: 1px solid black;
+          width: 60px;
+          height: 80%;
+          min-height: 35px;
+          margin: 0 10px;
+          justify-content: center;
+          align-items: center;
+        }
+
+
+
+
+        /* .fas {
+          border: 1px solid black;
+        } */
       </style>
       <!-- your code should be here -->
       <!-- <ul class="slides">
@@ -81,9 +117,9 @@
         <div class="controls_item controls__prev"><i class="fas fa-chevron-left"></i></div>
         <div class="controls_item controls__next"><i class="fas fa-chevron-right"></i></div>
         <div class="controls_item controls__pause"><i class="fas fa-play"></i></div>
-      </div> -->
+      </div> 
+    -->
       <script src="js/main.js"></script>
   </body>
-</body>
 
 </html>
