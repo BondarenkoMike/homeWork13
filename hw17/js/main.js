@@ -29,7 +29,7 @@ function createStructure(slidesCount) {
     indicator.setAttribute('data-slide-to', iSlide);
 
     if (!iSlide) {
-      // indicator.classList.add('active');
+      indicator.classList.add('active');
       indicator.style.backgroundColor = 'red';
 
       slide.classList.add('active');
@@ -138,10 +138,10 @@ function createStyle(carusel) {
     outline: 1px solid black;
   }
 
-  .active {
-    font-weight: bold;
-    background-color: red;
-  }
+  // .active {
+  //   font-weight: bold;
+  //   background-color: red;
+  // }
 
   .controls {
     position: relative;
