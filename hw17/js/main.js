@@ -1,5 +1,5 @@
 console.log('Sample JavaScript #5 HW #17');
-
+let prevIndicator = null;
 function createStructure(slidesCount) {
   let d = document;
   let slides = d.createElement('ul');
@@ -8,18 +8,17 @@ function createStructure(slidesCount) {
   indicators.classList.add('indicators');
   let controls = d.createElement('div');
   controls.classList.add('controls');
-
   let slide;
   let indicator;
   let a;
   // Creating slides and indicators
-  for (let iSlide = 1; iSlide <= slidesCount; iSlide++) {
+  for (let iSlide = 0; iSlide < slidesCount; iSlide++) {
     slide = d.createElement('li');
     indicator = d.createElement('span');
     a = d.createElement('a');
     a.setAttribute('href', '#');
     a.setAttribute('class', 'slides__item-link');
-    a.innerHTML = 'slide №' + iSlide;
+    a.innerHTML = 'slide №' + (iSlide + 1).toString();
 
     slide.classList.add('slides__item');
 
@@ -29,9 +28,12 @@ function createStructure(slidesCount) {
     indicator.classList.add('indicators__item');
     indicator.setAttribute('data-slide-to', iSlide);
 
-    if (!(iSlide - 1)) {
+    if (!iSlide) {
+      // indicator.classList.add('active');
+      indicator.style.backgroundColor = 'red';
+
       slide.classList.add('active');
-      indicator.classList.add('indicators_item--active');
+      prevIndicator = indicator;
     }
     indicators.appendChild(indicator);
   }
@@ -54,8 +56,9 @@ function createStructure(slidesCount) {
     controls.appendChild(control);
   };
 
-  let c = d.querySelector('#carousel');
+  let c = d.getElementById('carousel');
   if (c) {
+    createStyle(c);
     c.appendChild(slides)
     c.appendChild(indicators);
     c.appendChild(controls);
@@ -68,34 +71,105 @@ const gotoSlide = (slideNum) => {
   if (slide) {
     slide.classList.remove('active');
   }
-  slides.item(slideNum - 1).classList.add('active'); // classList.add('active');
+  slides.item(slideNum).classList.add('active');
 }
 
-function indicatorClick(event) {
-  var t;
-  let slides;
-  if (event.target.getAttribute('class') === 'indicators__item') {
-    const activeIndicator = document.querySelector('.indicators .indicators_item--active');
+function indicatorClick(e) {
+  let target = e.target;
 
-    if (activeIndicator !== event.target) {
-      if (activeIndicator) activeIndicator.classList.remove('indicators_item--active');
-    };
-    event.target.classList.add('indicators_item--active');
-    const targetSlideNum = +event.target.getAttribute('data-slide-to');
-    gotoSlide(targetSlideNum);
+  if (target.classList.contains('indicators__item')) {
+    if (prevIndicator !== null) prevIndicator.removeAttribute('style');
+    target.style.backgroundColor = 'red';
 
+    prevIndicator = target;
   }
+
+
+  // if (e.target.classList.contains('indicators__item')) {
+  //   const activeIndicator = document.querySelector('.indicators .active');
+  //   if (e.target !== activeIndicator) activeIndicator.classList.remove('active');
+  //   e.target.classList.add('active');
+  //   //const targetSlideNum = +e.target.getAttribute('data-slide-to');
+  //   //gotoSlide(targetSlideNum);
+  // }
+
 }
 
-function setupListenes() {
-  let indicators = document.getElementsByClassName('indicators').item(0);
+
+function setupListeners() {
+  let indicators = document.querySelector('div.indicators');
   indicators.addEventListener('click', indicatorClick);
+}
+
+function createStyle(carusel) {
+  let style = document.createElement('style');
+  carusel.appendChild(style);
+  style.innerHTML = `
+  .slider {
+    text-decoration: none;
+  }
+
+  .slides {
+    position: relative;
+    border: 1px solid black;
+    padding: 20px;
+  }
+
+  .slides__item-link {
+    text-decoration: none;
+  }
+
+  .indicators {
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    height: 20px;
+    padding: 2px;
+  }
+
+  .indicators__item {
+    border: 1px solid black;
+    width: 60px;
+    margin-right: 10px;
+    font-weight: normal;
+  }
+
+  .indicators__item:hover {
+    outline: 1px solid black;
+  }
+
+  .active {
+    font-weight: bold;
+    background-color: red;
+  }
+
+  .controls {
+    position: relative;
+    display: flex;
+    height: 35px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+  }
+
+  .controls__item {
+    display: flex;
+    border: 1px solid black;
+    width: 60px;
+    height: 80%;
+    min-height: 35px;
+    margin: 0 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  `
 }
 
 function createCarousel(slidesCount = 5) {
   // ваш код здесь
   createStructure(slidesCount);
-  setupListenes();
+  setupListeners();
 }
 
 createCarousel(4);
